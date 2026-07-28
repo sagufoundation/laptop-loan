@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAGU Laptop Loan | Logbook Peminjaman Laptop</title>
+<meta name="description" content="Logbook digital peminjaman dan pengembalian laptop SAGU Foundation.">
+<link rel="icon" type="image/png" href="assets/img/logo-sagu-foundation.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          gold: {
+            DEFAULT: '#C9A227',
+            dark: '#9E7F1D',
+            light: '#F4EAC6'
+          },
+          ink: '#111111'
+        },
+        fontFamily: {
+          heading: ['Poppins', 'sans-serif'],
+          body: ['Inter', 'sans-serif']
+        }
+      }
+    }
+  }
+</script>
+
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-white text-ink font-body antialiased">
+
+<!-- PAGE LOADER -->
+<div id="page-loader" class="sagu-loader">
+  <div class="sagu-loader-ring">
+    <img src="assets/img/logo-sagu-foundation.png" alt="" class="sagu-loader-logo">
+  </div>
+</div>
+
+<!-- ALERT / NOTIFICATION -->
+<div id="alert-box" class="sagu-alert" role="status" aria-live="polite">
+  <div class="sagu-alert-card">
+    <span id="alert-icon" class="sagu-alert-icon"></span>
+    <p id="alert-message" class="flex-1"></p>
+    <button type="button" id="alert-close" aria-label="Tutup notifikasi">&times;</button>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="bg-ink border-b-2 border-gold">
+  <div class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <img src="assets/img/logo-sagu-foundation.png" alt="Logo SAGU Foundation" class="h-11 w-11 object-contain">
+      <div>
+        <p class="font-heading text-white text-lg font-semibold tracking-wide leading-tight">SAGU LAPTOP LOAN</p>
+        <p class="text-gold text-xs tracking-[0.2em] uppercase">Logbook Peminjaman Laptop</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-2xl mx-auto px-6 py-12">
+
+  <!-- INTRO -->
+  <section class="mb-10">
+    <h1 class="font-heading text-2xl md:text-3xl font-semibold text-ink">Formulir Logbook</h1>
+    <p class="text-sm text-ink/60 mt-2">Logbook Peminjaman Laptop SAGU Foundation adalah catatan resmi setiap peminjaman dan pengembalian unit laptop kantor. Lengkapi formulir di bawah ini setiap kali Anda meminjam atau mengembalikan laptop.</p>
+  </section>
+
+  <!-- FORM -->
+  <section>
+    <div class="border border-ink/10 bg-white shadow-sm">
+      <form id="logbook-form" class="p-6 sm:p-8 space-y-5" novalidate>
+
+        <div>
+          <label for="nama" class="sagu-label">Nama Lengkap</label>
+          <input type="text" id="nama" name="nama" required autocomplete="name"
+            class="sagu-input" placeholder="Cth: Yohanes Kaize">
+          <p class="sagu-error-text" id="error-nama">Nama lengkap wajib diisi.</p>
+        </div>
+
+        <div>
+          <label for="noHp" class="sagu-label">No. HP / WhatsApp</label>
+          <input type="tel" id="noHp" name="noHp" required pattern="[0-9+ ]{8,15}" autocomplete="tel"
+            class="sagu-input" placeholder="08xxxxxxxxxx">
+          <p class="sagu-error-text" id="error-noHp">Nomor HP wajib diisi dengan format yang benar.</p>
+        </div>
+
+        <div>
+          <label for="email" class="sagu-label">Email</label>
+          <input type="email" id="email" name="email" required autocomplete="email"
+            class="sagu-input" placeholder="nama@email.com">
+          <p class="sagu-error-text" id="error-email">Email wajib diisi dengan format yang benar.</p>
+        </div>
+
+        <div>
+          <label for="laptopNo" class="sagu-label">Laptop No.</label>
+          <input type="number" id="laptopNo" name="laptopNo" required min="1" step="1" inputmode="numeric"
+            class="sagu-input" placeholder="Cth: 12">
+          <p class="sagu-error-text" id="error-laptopNo">Nomor laptop wajib diisi.</p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label for="tanggal" class="sagu-label">Tanggal</label>
+            <input type="date" id="tanggal" name="tanggal" required class="sagu-input">
+            <p class="sagu-error-text" id="error-tanggal">Tanggal wajib diisi.</p>
+          </div>
+          <div>
+            <label for="jam" class="sagu-label">Jam</label>
+            <input type="time" id="jam" name="jam" required class="sagu-input">
+            <p class="sagu-error-text" id="error-jam">Jam wajib diisi.</p>
+          </div>
+        </div>
+
+        <div>
+          <span class="sagu-label">Perlengkapan</span>
+          <div class="grid grid-cols-3 gap-3 mt-1">
+            <label class="flex items-center gap-2 text-sm text-ink/80 cursor-pointer select-none">
+              <input type="checkbox" name="perlengkapan" value="Mouse" class="sagu-checkbox">
+              Mouse
+            </label>
+            <label class="flex items-center gap-2 text-sm text-ink/80 cursor-pointer select-none">
+              <input type="checkbox" name="perlengkapan" value="Cas" class="sagu-checkbox">
+              Cas
+            </label>
+            <label class="flex items-center gap-2 text-sm text-ink/80 cursor-pointer select-none">
+              <input type="checkbox" name="perlengkapan" value="Tas" class="sagu-checkbox">
+              Tas
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label for="status" class="sagu-label">Status</label>
+          <select id="status" name="status" required class="sagu-input">
+            <option value="Peminjaman">Peminjaman</option>
+            <option value="Pengembalian">Pengembalian</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="keperluan" class="sagu-label">Keperluan</label>
+          <textarea id="keperluan" name="keperluan" rows="3" required
+            class="sagu-input resize-none" placeholder="Cth: Presentasi klien lapangan"></textarea>
+          <p class="sagu-error-text" id="error-keperluan">Keperluan wajib diisi.</p>
+        </div>
+
+        <div>
+          <label for="keteranganLain" class="sagu-label">Keterangan Lainnya <span class="normal-case font-normal text-ink/40">(opsional)</span></label>
+          <textarea id="keteranganLain" name="keteranganLain" rows="2"
+            class="sagu-input resize-none" placeholder="Cth: Ada goresan kecil di casing"></textarea>
+        </div>
+
+        <button type="submit" id="submit-btn" class="sagu-btn">
+          <span id="submit-text">Simpan Catatan</span>
+        </button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="bg-ink border-t-2 border-gold mt-16">
+  <div class="max-w-2xl mx-auto px-6 py-6 text-center">
+    <p class="text-white/50 text-xs">&copy; 2026 SAGU Foundation | Laptop Loan Logbook</p>
+  </div>
+</footer>
+
+<script src="assets/js/script.js"></script>
+</body>
+</html>

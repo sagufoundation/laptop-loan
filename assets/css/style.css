@@ -1,0 +1,270 @@
+/* SAGU Laptop Loan — custom styles (complements Tailwind utility classes) */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ---------- Page loader ---------- */
+
+.sagu-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #111111;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.sagu-loader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.sagu-loader-ring {
+  position: relative;
+  width: 6rem;
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sagu-loader-ring::before,
+.sagu-loader-ring::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2.5px solid transparent;
+}
+
+.sagu-loader-ring::before {
+  border-color: rgba(201, 162, 39, 0.15);
+}
+
+.sagu-loader-ring::after {
+  border-top-color: #C9A227;
+  border-right-color: #C9A227;
+  animation: sagu-spin 1s linear infinite;
+}
+
+.sagu-loader-logo {
+  width: 3.25rem;
+  height: 3.25rem;
+  object-fit: contain;
+  border-radius: 50%;
+  background-color: #ffffff;
+  padding: 0.4rem;
+  animation: sagu-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes sagu-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes sagu-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(0.9); opacity: 0.8; }
+}
+
+/* ---------- Form elements ---------- */
+
+.sagu-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #111111;
+  margin-bottom: 0.4rem;
+}
+
+.sagu-input {
+  width: 100%;
+  border: 1px solid rgba(17, 17, 17, 0.15);
+  background-color: #ffffff;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.9rem;
+  color: #111111;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.sagu-input::placeholder {
+  color: rgba(17, 17, 17, 0.35);
+}
+
+.sagu-input:focus {
+  outline: none;
+  border-color: #C9A227;
+  box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.18);
+}
+
+.sagu-input.is-invalid {
+  border-color: #111111;
+  border-width: 1.5px;
+}
+
+.sagu-error-text {
+  display: none;
+  font-size: 0.72rem;
+  color: #111111;
+  font-weight: 500;
+  margin-top: 0.4rem;
+}
+
+.sagu-error-text.is-visible {
+  display: block;
+}
+
+select.sagu-input {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23111111'%3E%3Cpath fill-rule='evenodd' d='M5.23 7.21a.75.75 0 011.06.02L10 11.293l3.71-4.06a.75.75 0 111.08 1.04l-4.24 4.65a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1.1rem;
+  padding-right: 2.25rem;
+  cursor: pointer;
+}
+
+/* ---------- Equipment checklist ---------- */
+
+.sagu-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1.15rem;
+  height: 1.15rem;
+  flex-shrink: 0;
+  border: 1px solid rgba(17, 17, 17, 0.3);
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.sagu-checkbox:checked {
+  background-color: #111111;
+  border-color: #111111;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23C9A227'%3E%3Cpath fill-rule='evenodd' d='M16.7 5.3a1 1 0 010 1.4l-7.5 7.5a1 1 0 01-1.4 0l-3.5-3.5a1 1 0 111.4-1.4l2.8 2.8 6.8-6.8a1 1 0 011.4 0z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 0.8rem;
+}
+
+.sagu-checkbox:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.35);
+}
+
+/* ---------- Submit button ---------- */
+
+.sagu-btn {
+  width: 100%;
+  background-color: #111111;
+  color: #C9A227;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.8rem 1rem;
+  border: 1px solid #111111;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.sagu-btn:hover {
+  background-color: #C9A227;
+  color: #111111;
+  border-color: #C9A227;
+}
+
+.sagu-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ---------- Alert / notification ---------- */
+
+.sagu-alert {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background-color: rgba(17, 17, 17, 0);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s ease, visibility 0.25s ease, background-color 0.25s ease;
+}
+
+.sagu-alert.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  background-color: rgba(17, 17, 17, 0.45);
+}
+
+.sagu-alert-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  width: 100%;
+  max-width: 22rem;
+  background-color: #ffffff;
+  border: 1px solid rgba(17, 17, 17, 0.12);
+  border-left: 4px solid #C9A227;
+  box-shadow: 0 20px 45px rgba(17, 17, 17, 0.25);
+  padding: 1rem 1.1rem;
+  font-size: 0.85rem;
+  color: #111111;
+  transform: scale(0.94) translateY(0.5rem);
+  transition: transform 0.25s ease;
+}
+
+.sagu-alert.is-visible .sagu-alert-card {
+  transform: scale(1) translateY(0);
+}
+
+.sagu-alert.is-error .sagu-alert-card {
+  border-left-color: #111111;
+}
+
+.sagu-alert-icon {
+  flex-shrink: 0;
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-top: 0.1rem;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #C9A227;
+}
+
+.sagu-alert.is-error .sagu-alert-icon {
+  color: #111111;
+}
+
+#alert-close {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgba(17, 17, 17, 0.4);
+  font-size: 1.1rem;
+  line-height: 1;
+  padding: 0;
+}
+
+#alert-close:hover {
+  color: #111111;
+}
